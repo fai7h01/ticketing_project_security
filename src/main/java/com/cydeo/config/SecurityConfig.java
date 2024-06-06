@@ -18,14 +18,14 @@ import java.util.List;
 @Configuration
 public class SecurityConfig {
 
-    @Bean
-    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
-        List<UserDetails> userList = new ArrayList<>(Arrays.asList(
-                new User("mike", encoder.encode("password"), Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"))),
-                new User("luka", encoder.encode("password"), Arrays.asList(new SimpleGrantedAuthority("ROLE_MANAGER")))
-        ));
-        return new InMemoryUserDetailsManager(userList);
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
+//        List<UserDetails> userList = new ArrayList<>(Arrays.asList(
+//                new User("mike", encoder.encode("password"), Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"))),
+//                new User("luka", encoder.encode("password"), Arrays.asList(new SimpleGrantedAuthority("ROLE_MANAGER")))
+//        ));
+//        return new InMemoryUserDetailsManager(userList);
+//    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
