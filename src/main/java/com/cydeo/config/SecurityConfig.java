@@ -37,7 +37,8 @@ public class SecurityConfig {
                             .anyRequest().authenticated();
                 })
                 .formLogin(formLogin -> formLogin.loginPage("/login")
-                        .defaultSuccessUrl("/welcome")
+//                        .defaultSuccessUrl("/welcome")
+                        .successHandler(new AuthSuccessHandler())
                         .failureUrl("/login?error=true")
                         .permitAll())
                 .logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
